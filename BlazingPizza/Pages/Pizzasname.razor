@@ -1,0 +1,20 @@
+﻿@page "/pizzas/{pizzaname}"
+@inject NavigationManager NavManager
+
+<h1>Buy a Pizza</h1>
+
+<p>I want to order a: @PizzaName</p>
+
+<button class="btn" @onclick="NavigateToPaymentPage">
+	Buy this pizza!
+</button>
+
+@code {
+	[Parameter]
+	public string PizzaName { get; set; }
+
+	private void NavigateToPaymentPage()
+	{
+		NavManager.NavigateTo("buypizza");
+	}
+}
